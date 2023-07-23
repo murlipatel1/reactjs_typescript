@@ -20,12 +20,11 @@ const departmentsData = [
   }
 ];
 
-
-
 const Department: React.FC = () => {
+  
+const initialSelectedDepartments = departmentsData.map((departmentData) => departmentData.department);
+const initialSelectedSubDepartments: string[] = departmentsData.reduce((acc :string[], departmentData) => [...acc, ...departmentData.sub_departments], []);
 
-  const initialSelectedDepartments = departmentsData.map((departmentData) => departmentData.department);
-const initialSelectedSubDepartments = departmentsData.reduce((acc, departmentData) => [...acc, ...departmentData.sub_departments], []);
   const [selectedDepartments, setSelectedDepartments] = useState<string[]>(initialSelectedDepartments);
   const [selectedSubDepartments, setSelectedSubDepartments] = useState<string[]>(initialSelectedSubDepartments);
 
