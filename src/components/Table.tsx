@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { DataGrid, GridColDef, GridRowsProp } from '@mui/x-data-grid';
+import Department from './Department';
 
 interface Post {
   userId: number;
@@ -43,8 +44,9 @@ const Table: React.FC = () => {
     <div>
       <h1>Posts:</h1>
       <div style={{ height: 500, width: '100%'}}>
-      <DataGrid  rows={rows} columns={columns}/>
+      <DataGrid   rows={rows} columns={columns}/>
       </div>
+      <Department/>
     </div>
   );
 };

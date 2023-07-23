@@ -3,6 +3,7 @@ import { TextField, Button, Grid } from '@mui/material';
 import { Person, Phone, Email } from '@mui/icons-material';
 import {useNavigate} from 'react-router-dom';
 
+
 const ContactForm: React.FC = () => {
     
     let history = useNavigate()
@@ -16,6 +17,8 @@ const ContactForm: React.FC = () => {
     event.preventDefault();
     // Handle the data here (e.g., send it to the server or perform some action)
     console.log({ name, phoneNumber, email });
+    const contactData={ name, phoneNumber, email };
+    localStorage.setItem('contactData', JSON.stringify(contactData));
     history("/table")
   };
 
@@ -23,12 +26,13 @@ const ContactForm: React.FC = () => {
     <>
     <h1>Welcome to Login </h1>
     <form onSubmit={handleSubmit}>
-      <Grid container spacing={2}>
+      <Grid sx={{minHeight: '60vh'}} direction="column" alignItems="center" justifyContent="center" container spacing={2}>
         <Grid item xs={12} md={6}>
           <TextField
             required
             fullWidth
             label="Name"
+            placeholder=' FirstName LastName' 
             value={name}
             onChange={(e) => setName(e.target.value)}
             variant="outlined"
@@ -42,6 +46,7 @@ const ContactForm: React.FC = () => {
             required
             fullWidth
             label="Phone Number"
+            placeholder=' +91 000 0000 000'
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
             variant="outlined"
@@ -56,6 +61,7 @@ const ContactForm: React.FC = () => {
             fullWidth
             label="Email"
             type="email"
+            placeholder=' name@provider.domain'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             variant="outlined"
@@ -71,6 +77,7 @@ const ContactForm: React.FC = () => {
         </Grid>
       </Grid>
     </form>
+    
     </>
   );
 };

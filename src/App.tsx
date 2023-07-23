@@ -2,6 +2,7 @@ import './App.css'
 import ContactForm from './components/ContactForm'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Table from './components/Table';
+import Department from './components/Department';
 
 function App() {
 
@@ -10,8 +11,9 @@ function App() {
     
     <Router>
       <Routes>
-      <Route path="/login" element={<ContactForm />} />
+      <Route path="/" element={<ContactForm />} />
       <Route path="/table" element={<Table />} />
+
       </Routes>
       </Router>
     </>
